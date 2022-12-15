@@ -33,6 +33,6 @@ jobs:
         run:
           sshpass -e ssh -o stricthostkeychecking=no ${{ secrets.APP_USER }}@${{ secrets.APP_HOST }}
           "cd public_html/ &&
-          git pull remote main &&
+          git pull testdeployactions main &&
           composer install &&
           php bin/console doctrine:migrations:migrate"
