@@ -22,7 +22,9 @@ jobs:
         with:
           node-version: 12
 
+      - run: rm -f package-lock.json
       - run: npm install
+
       - run: npm run build
 
       - name: deploys to server
