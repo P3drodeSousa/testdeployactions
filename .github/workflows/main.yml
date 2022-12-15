@@ -23,6 +23,7 @@ jobs:
           node-version: 12
 
       - run: rm -f package-lock.json
+      - run: npm link webpack
       - run: npm install
 
       - run: npm run build
