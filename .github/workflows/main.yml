@@ -29,13 +29,11 @@ jobs:
       - name: APT UPDATE and INSTALL SSHPASS
         run: sudo apt update && sudo apt install sshpass
 
-      - run: rm -rf .git
-      - run: rm -rf .github
-
       - name: deploys to server
         run:
           sshpass -e ssh -o stricthostkeychecking=no ${{ secrets.APP_USER }}@${{ secrets.APP_HOST }}
           "cd public_html/ &&
-          git pull https://github.com/P3drodeSousa/testdeployactions.git main &&
+          git pull &&
           composer install &&
+          composer require symfony/apache-pack &&
           php bin/console doctrine:migrations:migrate"
