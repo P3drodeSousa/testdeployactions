@@ -36,4 +36,5 @@ jobs:
           "cd public_html/ &&
           git pull &&
           composer config --no-plugins allow-plugins.symfony/flex true &&
-          composer install --ignore-platform-reqs --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts"
+          composer install --ignore-platform-reqs --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts &&
+          php bin/console d:m:m -n"
